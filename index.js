@@ -6,10 +6,9 @@ const cors = require("cors");
 // app.use(bodyParser.json());
 app.use(cors());
 const corsOptions = {
-  origin: '*',
-  'Access-Control-Allow-Credentials': true,
-
-  optionSuccessStatus: 200,
+    origin: '*', // You can replace '*' with the specific origin(s) you want to allow
+  credentials: true, // You can add the 'credentials' option here if needed
+  optionsSuccessStatus: 200,
 }
 
 app.use(cors(corsOptions))
