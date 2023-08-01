@@ -224,6 +224,7 @@ app.post("/checkcompanycredentials", (req, res) => {
     user: "u4qqcbihzzmqthct",
     password: "NOhpjqlJut072CUFfi63",
     database: "bzmcqjfthcfyomdr29nk",
+    connectTimeout: 30000,
 
   });
   const auth = 0;
@@ -272,6 +273,7 @@ app.post("/checkcredentialsusers", (req, res) => {
     user: "u4qqcbihzzmqthct",
     password: "NOhpjqlJut072CUFfi63",
     database: "bzmcqjfthcfyomdr29nk",
+    connectTimeout: 60000,
   });
 
   con.connect(function (err) {
