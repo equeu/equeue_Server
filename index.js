@@ -18,17 +18,8 @@ app.use(bodyParser.json({ limit: "50mb" }));
 app.use(bodyParser.urlencoded({ limit: "50mb", extended: true, parameterLimit: 50000 }));
 
 
-app.get("/usersignup", (req, res) => {
-  res.send("This is the data endpoint");
-  console.log("Received data:");
-});
-
 app.post("/usersignup", (req, res) => {
   const { name, number, password } = req.body;
-
-  // console.log("DATA RECEIVED "+ n);
-
-  // SQL STARTS
 
   var mysql = require("mysql");
 
@@ -37,22 +28,17 @@ app.post("/usersignup", (req, res) => {
     user: "u4qqcbihzzmqthct",
     password: "NOhpjqlJut072CUFfi63",
     database: "bzmcqjfthcfyomdr29nk",
-
+    timeout: 60000, // Set the timeout to 60 seconds (or adjust as needed)
   });
 
   con.connect(function (err) {
-    if (err) throw err;
+    if (err) {
+      console.error("Error connecting to MySQL:", err);
+      res.send("Error connecting to the database");
+      return;
+    }
+
     console.log("Connected! Signup User");
-    // var sql = "INSERT INTO details (username, name,age, gender, interests, phoneno, country, maritalstat, work, prefferedage, city, religion, caste, height, description, hobbies) VALUES ('pathan77', ' "+a+" ', '', '', '', '', '', '', '', '', '', '', '', '', '','')";
-    // var sql =
-    //   "INSERT INTO userlogin (fullname,phone,password) VALUES ('" +
-    //   name +
-    //   "' ,'" +
-    //   number +
-    //   "' , '" 
-    //   password +
-    //   "'"+
-    //   ")";
     var sql = "INSERT INTO userlogin (fullname, phone, password) VALUES (?, ?, ?)";
     con.query(sql, [name, number, password], function (err, result) {
       if (err) {
@@ -89,6 +75,7 @@ app.post("/companysignup", (req, res) => {
     user: "u4qqcbihzzmqthct",
     password: "NOhpjqlJut072CUFfi63",
     database: "bzmcqjfthcfyomdr29nk",
+    timeout: 60000,
 
   });
   con.connect(function (err) {
