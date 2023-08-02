@@ -124,6 +124,7 @@ app.post("/logout", (req, res) => {
     user: "u4qqcbihzzmqthct",
     password: "NOhpjqlJut072CUFfi63",
     database: "bzmcqjfthcfyomdr29nk",
+    timeout: 60000, // Set the timeout to 60 seconds (or adjust as needed)
 
   });
   const auth = 0;
@@ -210,7 +211,7 @@ app.post("/checkcompanycredentials", (req, res) => {
     user: "u4qqcbihzzmqthct",
     password: "NOhpjqlJut072CUFfi63",
     database: "bzmcqjfthcfyomdr29nk",
-    connectTimeout: 30000,
+    timeout: 60000, // Set the timeout to 60 seconds (or adjust as needed)
 
   });
   const auth = 0;
@@ -259,7 +260,7 @@ app.post("/checkcredentialsusers", (req, res) => {
     user: "u4qqcbihzzmqthct",
     password: "NOhpjqlJut072CUFfi63",
     database: "bzmcqjfthcfyomdr29nk",
-    connectTimeout: 60000,
+    timeout: 60000, // Set the timeout to 60 seconds (or adjust as needed)
   });
 
   con.connect(function (err) {
