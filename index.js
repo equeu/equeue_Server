@@ -953,6 +953,7 @@ function sendnoti(t) {
                 // Second query executed successfully
                 console.log("Second notification inserted successfully.");
               }
+               con.end();
             });
           }
         });
